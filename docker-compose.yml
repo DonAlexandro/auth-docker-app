@@ -1,0 +1,40 @@
+version: "3"
+services:
+  auth-app:
+    build: .
+    image: 996516647936.dkr.ecr.us-east-2.amazonaws.com/auth-docker-app_auth-app:latest
+    env_file: .env
+    container_name: ada_api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+      - mysql
+    command: npm run dev
+
+  mongo:
+    image: mongo
+    env_file: .env
+    container_name: ada_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-db:/data/db
+
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=auth_app
+    env_file: .env
+    container_name: ada_mysql
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-db:/var/lib/mysql
+
+volumes:
+  mongo-db:
+  mysql-db:

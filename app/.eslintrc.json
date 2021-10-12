@@ -1,0 +1,39 @@
+{
+  "plugins": ["jsdoc"],
+  // "extends": ["plugin:jsdoc/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "rules": {
+    "no-console": "error",
+    "semi": "error",
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "arrow-parens": ["error", "as-needed"],
+    "no-trailing-spaces": "error",
+    // "jsdoc/require-jsdoc": [
+    //   "error",
+    //   {
+    //     "require": {
+    //       "ArrowFunctionExpression": true,
+    //       "ClassDeclaration": true,
+    //       "ClassExpression": true,
+    //       "FunctionDeclaration": true,
+    //       "FunctionExpression": true,
+    //       "MethodDefinition": true
+    //     }
+    //   }
+    // ],
+    "jsdoc/require-description": [
+      "error",
+      {
+        "contexts": ["any"]
+      }
+    ],
+    "jsdoc/require-hyphen-before-param-description": ["error", "always"],
+    "no-unused-vars": "error"
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  }
+}
